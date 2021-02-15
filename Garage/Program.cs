@@ -6,7 +6,8 @@ namespace Garage
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GarageHandler gh = new GarageHandler();
+            gh.Run();
         }
     }
 }
