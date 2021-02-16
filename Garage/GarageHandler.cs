@@ -47,7 +47,10 @@ namespace GarageApp
 
         private void ListAllVehicles()
         {
-            throw new NotImplementedException();
+            foreach (var item in garage)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
         //Car myCar = new Car();
         //    if internal void Run()
