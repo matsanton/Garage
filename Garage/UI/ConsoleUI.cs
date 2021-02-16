@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GarageApp.UI
 {
-    class ConsoleUI
+    class ConsoleUI : IConsoleUI
     {
         public void ViewMenu()
         {
@@ -27,6 +27,11 @@ namespace GarageApp.UI
                 case '2': return 2;
                 default: return -1;
             }
+        }
+
+        public void Write(string line)
+        {
+            Console.WriteLine(line);
         }
     }
 

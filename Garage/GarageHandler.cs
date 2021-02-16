@@ -10,10 +10,13 @@ namespace GarageApp
     {
         const int MaxCapacity = 16;
         private Garage<Vehicle> garage = new Garage<Vehicle>(MaxCapacity);
+        private IConsoleUI UI;
 
-        public GarageHandler(ConsoleUI ui)
+        public GarageHandler(IConsoleUI ui)
         {
+            UI = ui;
             Init();
+            Run();
         }
 
         private void Init()
@@ -23,12 +26,12 @@ namespace GarageApp
             garage.Park(new Truck("abc000", weight: 3500.0, load: 2000.0));
         }
 
-        internal void Run(ConsoleUI ui)
+        internal void Run()
         {
             while(true)
             {
-                ui.ViewMenu();
-                int choice = ui.GetInput();
+                UI.ViewMenu();
+                int choice = UI.GetInput();
 
                 switch(choice)
                 {
@@ -49,7 +52,7 @@ namespace GarageApp
         {
             foreach (var item in garage)
             {
-                Console.WriteLine(item.ToString());
+                UI.Write(item.ToString());
             }
         }
         //Car myCar = new Car();

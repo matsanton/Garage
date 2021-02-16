@@ -9,7 +9,7 @@ namespace GarageApp
     {
         public void Run()
         {
-            ConsoleUI ui = new ConsoleUI();
+            IConsoleUI ui = new ConsoleUI();
             GarageHandler gh = new GarageHandler(ui);
         }
     }
