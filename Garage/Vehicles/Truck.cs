@@ -12,5 +12,10 @@ namespace GarageApp.Vehicles
         {
             Load = load;
         }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {base.ToString()} Lastvikt: {Load}";
+        }
     }
 }

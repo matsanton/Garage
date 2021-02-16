@@ -12,5 +12,9 @@ namespace GarageApp.Vehicles
         {
             NumberOfEngines = numberOfEngines;
         }
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {base.ToString()} Antal motorer: {NumberOfEngines}";
+        }
     }
 }

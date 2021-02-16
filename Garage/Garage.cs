@@ -6,13 +6,24 @@ using System.Text;
 
 namespace GarageApp
 {
-    public class Garage<T> : IEnumerable<T> where T : Vehicle 
+    public class Garage<T> : IEnumerable<T> where T : Vehicle
     {
-        private Vehicle[] vehicles;
+        private T[] vehicles;
         private int nextFreeSpot = 0;
 
-        public int Capacity { get; set; }
+        public int Capacity { get; }
         public bool SpaceAvailable { get; private set; }
+
+        public T this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= Capacity)
+                    throw new ArgumentOutOfRangeException();
+
+                return vehicles[index];
+            }
+        }
 
         public Garage(int capacity)
         {
@@ -21,7 +32,7 @@ namespace GarageApp
                 throw new ArgumentOutOfRangeException();
             }
             Capacity = capacity;
-            vehicles = new Vehicle[capacity];
+            vehicles = new T[capacity];
         }
 
         internal bool Park(T parkingVehicle)
@@ -51,5 +62,6 @@ namespace GarageApp
         {
             return GetEnumerator();
         }
+
     }
 }

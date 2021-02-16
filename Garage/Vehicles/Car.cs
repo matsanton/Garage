@@ -12,5 +12,10 @@ namespace GarageApp.Vehicles
         {
             FuelType = fuelType;
         }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {base.ToString()} Drivmedel: {FuelType}";
+        }
     }
 }

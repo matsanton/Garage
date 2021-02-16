@@ -35,6 +35,8 @@ namespace GarageApp
 
                 switch(choice)
                 {
+                    case 0: Environment.Exit(0);
+                        break;
                     case 1: ListAllVehicles();
                         break;
                     case 2:
@@ -50,20 +52,16 @@ namespace GarageApp
 
         private void ListAllVehicles()
         {
+            UI.Write("Fordon i garaget just nu:");
+            int plats = 0;
             foreach (var item in garage)
             {
+                Console.WriteLine($"Plats {plats}: ");
                 UI.Write(item.ToString());
             }
-        }
-        //Car myCar = new Car();
-        //    if internal void Run()
-        //{
-        //    throw new NotImplementedException();
-        //}
+            Console.ReadLine();
 
-        //(myGarage.Park(myCar))
-        //    {
-        //        Console.WriteLine("Success parking");
-        //    }
+        }
+
     }
 }

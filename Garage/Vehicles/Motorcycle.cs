@@ -12,5 +12,10 @@ namespace GarageApp.Vehicles
         {
             EngineSize = engineSize;
         }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {base.ToString()} : Motorstorlek: {EngineSize}";
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace GarageApp.Vehicles
             Weight = weight;
         }
 
+        public override string ToString()
+        {
+            return $"Registreringsnummer: {RegNumber} : Fordonsvikt: {Weight}";
+        }
+
     }
 }

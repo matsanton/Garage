@@ -12,5 +12,10 @@ namespace GarageApp.Vehicles
         {
             NumberOfSeats = numberOfSeats;
         }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {base.ToString()} Antal passagerarplatser: {NumberOfSeats}";
+        }
     }
 }

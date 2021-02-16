@@ -2,11 +2,16 @@
 {
     internal class Airplane : Vehicle
     {
-        public double CargoWeight { get; set; }
+        public double Payload { get; set; }
 
-        public Airplane(string regno, double weight, double cargoWeight) : base(regno, weight)
+        public Airplane(string regno, double weight, double payload) : base(regno, weight)
         {
-            CargoWeight = cargoWeight;
+            Payload = payload;
+        }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {base.ToString()} Lastvikt{Payload}";
         }
 
     }
