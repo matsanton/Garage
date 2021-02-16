@@ -9,14 +9,11 @@ namespace GarageApp.UI
         public void ViewMenu()
         {
             Console.Clear();
-            Console.WriteLine("---Garage---");
-            Console.WriteLine("1. Lista alla fordon");
-            Console.WriteLine("2. ");
-            Console.WriteLine("3. ");
-            Console.WriteLine("4. ");
-            Console.WriteLine("5. ");
-            Console.WriteLine("0. Exit");
-
+            Console.WriteLine("---Garage---"
+                + "\n1. Lista alla fordon"
+                + "\n2. "
+                + "\n3. Populera garaget med några fordon. "
+                + "\n0. Exit");
         }
         public int GetInput()
         {
@@ -26,6 +23,7 @@ namespace GarageApp.UI
                 case '0': return 0;
                 case '1': return 1;
                 case '2': return 2;
+                case '3': return 3;
                 default:
                     Console.WriteLine("Skriv in en siffra från menyn.");
                     return -1;

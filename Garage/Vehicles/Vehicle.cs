@@ -27,7 +27,7 @@ namespace GarageApp.Vehicles
 
         public override string ToString()
         {
-            return $"Registreringsnummer: {RegNumber} : Fordonsvikt: {Weight}";
+            return $"Regnr: {RegNumber} : Fordonsvikt: {Weight}";
         }
 
     }

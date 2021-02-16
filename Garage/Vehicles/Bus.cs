@@ -15,7 +15,7 @@ namespace GarageApp.Vehicles
 
         public override string ToString()
         {
-            return $"{GetType().Name}: {base.ToString()} Antal passagerarplatser: {NumberOfSeats}";
+            return $"{GetType().Name}: {base.ToString()} Antal platser: {NumberOfSeats}";
         }
     }
 }

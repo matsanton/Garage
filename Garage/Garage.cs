@@ -8,12 +8,12 @@ namespace GarageApp
 {
     public class Garage<T> : IEnumerable<T> where T : Vehicle
     {
-        private T[] vehicles;
-        private int nextFreeSpot = 0;
+        private readonly T[] vehicles;
+        private int count = 0;
 
         public int Capacity { get; }
-        public bool SpaceAvailable { get; private set; }
-
+        public bool SpaceAvailable { get; private set; } = true;
+        public int Count => count;
 
         public Garage(int capacity)
         {
@@ -25,12 +25,12 @@ namespace GarageApp
             vehicles = new T[capacity];
         }
 
-        internal bool Park(T parkingVehicle)
+        internal bool Park(T vehicle)
         {
             if (SpaceAvailable)
             {
-                vehicles[nextFreeSpot++] = parkingVehicle;
-                if (nextFreeSpot == Capacity)
+                vehicles[count++] = vehicle;
+                if (count == Capacity)
                 {
                     SpaceAvailable = false;
                 }
@@ -41,10 +41,9 @@ namespace GarageApp
 
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (var vehicle in vehicles)
+            foreach(var item in vehicles)
             {
-                if (vehicle != null)
-                    yield return vehicle as T;
+                yield return item as T;
             }
         }
 
@@ -52,6 +51,6 @@ namespace GarageApp
         {
             return GetEnumerator();
         }
-
+       
     }
 }

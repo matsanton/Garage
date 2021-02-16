@@ -11,6 +11,7 @@ namespace GarageApp
         {
             IConsoleUI ui = new ConsoleUI();
             GarageHandler gh = new GarageHandler(ui);
+            gh.Run();
         }
     }
 }
