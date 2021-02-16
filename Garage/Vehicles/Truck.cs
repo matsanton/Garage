@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Garage.Vehicles
+namespace GarageApp.Vehicles
 {
-    class Truck : Vehicle
-    { 
+     
+    public class Truck : Vehicle
+    {
+        public double Load { get; set; }
+        public Truck(string regno, double weight, double load) : base(regno, weight)
+        {
+            Load = load;
+        }
     }
 }

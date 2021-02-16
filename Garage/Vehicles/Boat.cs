@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Garage.Vehicles
+namespace GarageApp.Vehicles
 {
     class Boat : Vehicle
     {
+        public int NumberOfEngines { get; set; }
+
+        public Boat(string regno, double weight, int numberOfEngines) : base(regno, weight)
+        {
+            NumberOfEngines = numberOfEngines;
+        }
     }
 }

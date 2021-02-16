@@ -1,13 +1,14 @@
-﻿using System;
+﻿using GarageApp.UI;
+using System;
 
-namespace Garage
+namespace GarageApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            GarageHandler gh = new GarageHandler();
-            gh.Run();
+            GarageApplication garage = new GarageApplication();
+            garage.Run();
         }
     }
 }

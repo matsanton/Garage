@@ -1,23 +1,41 @@
-﻿using Garage.Vehicles;
+﻿using GarageApp.Vehicles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Garage
+namespace GarageApp
 {
-    class Garage<T> : IEnumerable<T> where T : Vehicle 
+    public class Garage<T> : IEnumerable<T> where T : Vehicle 
     {
         private Vehicle[] vehicles;
+        private int nextFreeSpot = 0;
+
+        public int Capacity { get; set; }
+        public bool SpaceAvailable { get; private set; }
 
         public Garage(int capacity)
         {
+            if (capacity <= 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            Capacity = capacity;
             vehicles = new Vehicle[capacity];
         }
 
         internal bool Park(T parkingVehicle)
         {
-            return true;
+            if (SpaceAvailable)
+            {
+                vehicles[nextFreeSpot++] = parkingVehicle;
+                if (nextFreeSpot == Capacity)
+                {
+                    SpaceAvailable = false;
+                }
+                return true;
+            }
+            return false;
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -28,7 +46,6 @@ namespace Garage
                     yield return vehicle as T;
             }
         }
-
 
         IEnumerator IEnumerable.GetEnumerator()
         {

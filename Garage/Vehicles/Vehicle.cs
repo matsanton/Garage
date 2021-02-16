@@ -2,18 +2,28 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Garage.Vehicles
+namespace GarageApp.Vehicles
 {
-   
 
-    abstract class Vehicle
+
+    public abstract class Vehicle : IVehicle
     {
-        private int id;
+        private string regno;
 
-        public int Id
+        public string RegNumber
         {
-            get { return id; }
-            set { id = value; }
+            get { return regno; }
+            set { regno = value.ToUpper(); }
         }
+
+        public double Weight { get; set; }
+
+
+        public Vehicle(string regno, double weight)
+        {
+            RegNumber = regno;
+            Weight = weight;
+        }
+
     }
 }
