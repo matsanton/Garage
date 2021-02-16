@@ -59,7 +59,6 @@ namespace GarageApp
                 Console.WriteLine($"Plats {plats}: ");
                 UI.Write(item.ToString());
             }
-            Console.ReadLine();
 
         }
 

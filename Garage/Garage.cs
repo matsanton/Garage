@@ -14,16 +14,6 @@ namespace GarageApp
         public int Capacity { get; }
         public bool SpaceAvailable { get; private set; }
 
-        public T this[int index]
-        {
-            get
-            {
-                if (index < 0 || index >= Capacity)
-                    throw new ArgumentOutOfRangeException();
-
-                return vehicles[index];
-            }
-        }
 
         public Garage(int capacity)
         {
